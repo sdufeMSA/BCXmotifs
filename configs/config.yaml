@@ -1,0 +1,59 @@
+# Root Hydra configuration for MSA-ARC.
+# Every value here is the setting the manuscript reports; override on the
+# command line, e.g.  python scripts/train.py train.seed=29
+defaults:
+  - data: default
+  - model: msa_arc
+  - train: default
+  - mcva: default
+  - _self_
+
+output_dir: outputs/msa_arc
+run_name: msa_arc
+
+# Ten-seed protocol (Appendix A.2.1). Seed 17 is the primary frozen run whose
+# raw counts back every confusion matrix in the paper.
+seeds: [17, 29, 43, 61, 79, 97, 113, 137, 163, 191]
+
+loss:
+  alpha: 0.7          # cross-entropy over the unified target sequence
+  beta: 0.3           # class-aware contrastive term
+  margin: 1.0
+  negative_mining: batch_hard
+
+decode:
+  num_beams: 4        # primary decoding; greedy is the parse-failure retry
+  max_new_tokens: 16
+  length_penalty: 1.0
+  early_stopping: true
+  probability_temperature: 1.0
+
+features:
+  text:
+    backbone_name: google/mt5-base
+    max_length: 128
+    use_jieba: true
+    strip_symbols: true
+  audio:
+    sample_rate: 16000
+    n_mels: 40
+    window_ms: 25.0
+    hop_ms: 10.0
+    denoise: true
+    max_frames: 3000
+    dim: 40
+  video:
+    fps: 10
+    image_size: 224
+    face_detector: mediapipe
+    backbone_name: resnet50
+    dim: 2048
+    max_frames: 300
+
+hydra:
+  # Hydra's own .hydra/ and job log land beside the run artefacts rather
+  # than in a second directory named after the run.
+  run:
+    dir: ${output_dir}
+  job:
+    chdir: false

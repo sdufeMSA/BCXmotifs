@@ -1,0 +1,7 @@
+# @package mcva
+# Thresholds selected on the 24 validation participants and frozen before the
+# test split was scored (Appendix A.2.1).
+tau_rev: 0.7
+tau_flag: 0.3
+enabled: true
+auto_accept_bands: [high, medium]

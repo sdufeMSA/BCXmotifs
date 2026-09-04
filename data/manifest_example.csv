@@ -1,0 +1,7 @@
+participant_id,service_id,scenario,transcript,audio_path,audio_start_sec,audio_end_sec,video_path,video_start_sec,video_end_sec,label_polarity,label_intensity,label_category,divergence_pattern
+P0001,s1,1,我挺喜欢的这个服务很好,clips/P0001_s1_f1.wav,,,clips/P0001_s1_f1.mp4,,,positive,0.85,Like,none
+P0001,s1,0,那也没办法只能这样了,clips/P0001_s1_f0.wav,,,clips/P0001_s1_f0.mp4,,,negative,-0.45,Live with,reluctant_acceptance
+P0002,s1,1,我不需要这个我自己能行,sessions/P0002.wav,124.5,151.2,sessions/P0002.mp4,124.5,151.2,positive,0.62,Essential,aging_denial
+P0002,s1,0,不提供就不提供吧无所谓,sessions/P0002.wav,151.2,178.0,sessions/P0002.mp4,151.2,178.0,neutral,0.05,Neutral,politeness
+P0003,s2,1,挺好的呀真不错,sessions/P0003.wav,88.0,101.4,clips/P0003_s2_f1.mp4,,,negative,-0.78,Like,sarcasm
+P0004,s2,1,都行随便吧,sessions/P0004.wav,60.0,72.5,sessions/P0004.mp4,60.0,72.5,,,,

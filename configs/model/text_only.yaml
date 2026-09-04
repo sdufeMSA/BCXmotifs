@@ -1,0 +1,7 @@
+# @package model
+# Ablation: text branch only. Audio and video contribute zero vectors, so the
+# adapters still run but carry no cross-modal signal.
+defaults:
+  - msa_arc
+use_audio: false
+use_video: false

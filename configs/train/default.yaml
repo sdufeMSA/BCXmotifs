@@ -1,0 +1,15 @@
+# @package train
+optimizer: adamw
+learning_rate: 1.0e-5
+weight_decay: 0.01
+batch_size: 16
+max_epochs: 50
+warmup_ratio: 0.1
+lr_schedule: cosine
+grad_clip: 1.0
+early_stopping_metric: val_macro_f1
+early_stopping_patience: 5
+seed: 17
+num_workers: 4
+device: cuda
+amp: false

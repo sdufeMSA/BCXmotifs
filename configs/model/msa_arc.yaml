@@ -1,0 +1,17 @@
+# @package model
+# Six cross-modal adapter blocks on the top six encoder layers,
+# 3,544,704 parameters in total.
+backbone_name: google/mt5-base
+hidden_dim: 768
+bottleneck_dim: 192          # d_h / 4
+adapter_layers: [6, 7, 8, 9, 10, 11]
+adapter_activation: gelu
+dropout: 0.1
+
+audio_input_dim: 40          # 40-bank Mel-spectrogram
+video_input_dim: 2048        # ResNet-50 pooled frame feature
+lstm_layers: 2
+
+use_audio: true
+use_video: true
+freeze_backbone: true

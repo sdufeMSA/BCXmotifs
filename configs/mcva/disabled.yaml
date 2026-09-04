@@ -1,0 +1,5 @@
+# @package mcva
+# Ablation: the "without MCVA" row. Surface categories go straight through.
+defaults:
+  - default
+enabled: false
